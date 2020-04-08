@@ -143,6 +143,63 @@
   }
 
   saveData($data);
-  ```
 
+
+
+  if($data["showpassword"] == "yes") {
+    print "The password for natas12 is <censored><br>";
+}
+```
+  app này hoạt động như thế này: có một mảng 2 đối tượng showpassword và bgcolor, nó mã hóa qua các bước đến tạo thành cái cookie.
+  Server sẽ kiểm tra showpassword yes or no, yes thì show password để đi tiếp. Vậy mình cần làm ra một cookie mà trường showpassword có
+  giá trị là yes.
+  mình hiện đang có một cookie có showpassword là no khi mình nhấn nút lúc ban đầu. Dựa vào source code ta đảo ngược quá trình mã hóa, 
+  nhưng ta thấy $key = '<censored>'; đang là một giá trị không biết. Tìm $key này trước.
+  ta dùng code này để giả lập.
+
+```php
+  $defaultdata = array( "showpassword"=>"no", "bgcolor"=>"#ffffff");
+
+  function xor_encrypt($in) {
+      $key = base64_decode('ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEV4sFxFeaAw%3D');
+      $text = $in;
+      $outText = '';
+
+      // Iterate through each character
+      for($i=0;$i<strlen($text);$i++) {
+      $outText .= $text[$i] ^ $key[$i % strlen($key)];
+      }
+
+      return $outText;
+  }
+
+  echo xor_encrypt(json_encode($defaultdata));
+```
+
+  ta có $key = qw8J;
+  Để đổi lại thông số showpassword bằng yes và giữ code y như ban đầu.
+```php
+$defaultdata = array( "showpassword"=>"yes", "bgcolor"=>"#ffffff");
+
+  function xor_encrypt($in) {
+      $key = 'qw8J';
+      $text = $in;
+      $outText = '';
+
+      // Iterate through each character
+      for($i=0;$i<strlen($text);$i++) {
+      $outText .= $text[$i] ^ $key[$i % strlen($key)];
+      }
+
+      return $outText;
+  }
+
+  $new_cookie = base64_encode(xor_encrypt(json_encode($defaultdata)));
+  echo $new_cookie;
+  ```
+  ra được cookie cần muốn: ClVLIh4ASCsCBE8lAxMacFMOXTlTWxooFhRXJh4FGnBTVF4sFxFeLFMK
+  giờ chỉ cần edit cookie cũ , f5 lại trang là ok EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3
+
+  
+  
  
