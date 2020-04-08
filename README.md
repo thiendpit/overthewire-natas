@@ -200,6 +200,15 @@ $defaultdata = array( "showpassword"=>"yes", "bgcolor"=>"#ffffff");
   ra được cookie cần muốn: ClVLIh4ASCsCBE8lAxMacFMOXTlTWxooFhRXJh4FGnBTVF4sFxFeLFMK
   giờ chỉ cần edit cookie cũ , f5 lại trang là ok EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3
 
+- Natas 11 -> 12
+  web upload file, đọc source không thấy có check file tải lên. Ta tải lên một file php
+  ```php
+  system("cat /etc/natas_webpass/natas13");
+  ```
+  xin lỗi mình đọc code không kĩ, khi up lên mình thấy nó có random tên của file và đổi đuôi file thành jpg. Mình dùng burp để chặn ở giữa
+  đổi lại tên random bằng chính tên của file, khi upload thành công upload/1f0u6vpwqa.php nó thông báo thành công và quan trọng vẫn giữ được 
+  đuôi file php. Truy cập url hiện ra pass: jmLTY0qiPZBbaKc9341cqPQZBJv7MQbY 
+
 
   
  
