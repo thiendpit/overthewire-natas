@@ -149,13 +149,13 @@
   if($data["showpassword"] == "yes") {
     print "The password for natas12 is <censored><br>";
 }
-```
-  app này hoạt động như thế này: có một mảng 2 đối tượng showpassword và bgcolor, nó mã hóa qua các bước đến tạo thành cái cookie.
-  Server sẽ kiểm tra showpassword yes or no, yes thì show password để đi tiếp. Vậy mình cần làm ra một cookie mà trường showpassword có
-  giá trị là yes.
-  mình hiện đang có một cookie có showpassword là no khi mình nhấn nút lúc ban đầu. Dựa vào source code ta đảo ngược quá trình mã hóa, 
-  nhưng ta thấy $key = '<censored>'; đang là một giá trị không biết. Tìm $key này trước.
-  ta dùng code này để giả lập.
+
+app này hoạt động như thế này: có một mảng 2 đối tượng showpassword và bgcolor, nó mã hóa qua các bước đến tạo thành cái cookie.
+Server sẽ kiểm tra showpassword yes or no, yes thì show password để đi tiếp. Vậy mình cần làm ra một cookie mà trường showpassword có
+giá trị là yes.
+mình hiện đang có một cookie có showpassword là no khi mình nhấn nút lúc ban đầu. Dựa vào source code ta đảo ngược quá trình mã hóa, 
+nhưng ta thấy $key = '<censored>'; đang là một giá trị không biết. Tìm $key này trước.
+ta dùng code này để giả lập.
 
 ```php
   $defaultdata = array( "showpassword"=>"no", "bgcolor"=>"#ffffff");
@@ -200,6 +200,6 @@ $defaultdata = array( "showpassword"=>"yes", "bgcolor"=>"#ffffff");
   ra được cookie cần muốn: ClVLIh4ASCsCBE8lAxMacFMOXTlTWxooFhRXJh4FGnBTVF4sFxFeLFMK
   giờ chỉ cần edit cookie cũ , f5 lại trang là ok EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3
 
-  
+
   
  
