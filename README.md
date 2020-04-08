@@ -209,6 +209,13 @@ $defaultdata = array( "showpassword"=>"yes", "bgcolor"=>"#ffffff");
   đổi lại tên random bằng chính tên của file, khi upload thành công upload/1f0u6vpwqa.php nó thông báo thành công và quan trọng vẫn giữ được 
   đuôi file php. Truy cập url hiện ra pass: jmLTY0qiPZBbaKc9341cqPQZBJv7MQbY 
 
+- Natas 12 -> 13
+  Lần này đã check kỹ hơn. Kiểm tra file có phải là image không, mặc dù mình thử thểm đuôi .png vào sau khi up lên vẫn vô dụng, nên mình 
+  dùng kĩ thuật chèn header của file PNG vào file shell cần up, phần này bạn có thể search gg, cách làm là vậy. rồi up lên như bình thường
+  ra pass:  Lg96M10TdfaPyVBkJdjymbllQ5L6qdl1
+
+- Natas 13 -> 14
+
 
   
  
